@@ -1,0 +1,66 @@
+/* tokens.css — Design tokens: colours, spacing, typography, shadows for the Carpool app. */
+
+:root {
+  /* Colours */
+  --color-base: #0d7377;
+  --color-base-light: #15959a;
+  --color-base-dark: #0a5c5f;
+  --color-accent: #e8a838;
+  --color-accent-light: #f0c060;
+  --color-bg: #fafaf7;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f2ed;
+  --color-text: #2d2a26;
+  --color-text-secondary: #6b6560;
+  --color-text-inverse: #fafaf7;
+  --color-border: #e0dcd6;
+  --color-error: #c4392d;
+  --color-success: #2d8a4e;
+  --color-warning: #d4870e;
+
+  /* Spacing — 4px scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Typography */
+  --font-display: 'DM Sans', 'Noto Sans Tamil', system-ui, sans-serif;
+  --font-text: 'Inter', 'Noto Sans Tamil', system-ui, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows — warm undertone */
+  --shadow-sm: 0 1px 2px rgba(45, 42, 38, 0.06);
+  --shadow-md: 0 4px 12px rgba(45, 42, 38, 0.08);
+  --shadow-lg: 0 8px 24px rgba(45, 42, 38, 0.12);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  /* Layout */
+  --container-max: 1200px;
+  --sidebar-width: 400px;
+  --header-height: 56px;
+}
