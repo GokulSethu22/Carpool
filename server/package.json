@@ -23,7 +23,7 @@
     "@types/cookie-parser": "^1.4.7",
     "@types/cors": "^2.8.17",
     "@types/node": "^20.12.0",
-    "typescript": "^5.4.0",
+    "typescript": "5.9.3",
     "tsx": "^4.11.0"
   }
 }

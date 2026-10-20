@@ -1,0 +1,23 @@
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+// Layout.tsx — Main responsive navigation shell with Driver/Rider mode switch and notification center.
+import { useState, useEffect } from 'react';
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { useAuth } from '../lib/auth';
+import { Notifications } from './Notifications';
+import { Car, Search, PlusCircle, User, LogOut } from 'lucide-react';
+export const Layout = () => {
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
+    // Mode: 'driver' or 'rider'
+    const [mode, setMode] = useState(() => {
+        return localStorage.getItem('carpool_mode') || 'rider';
+    });
+    useEffect(() => {
+        localStorage.setItem('carpool_mode', mode);
+    }, [mode]);
+    const handleLogout = async () => {
+        await logout();
+        navigate('/login');
+    };
+    return (_jsxs("div", { className: "app-shell", children: [_jsx("header", { className: "header", role: "banner", children: _jsxs("div", { className: "header-inner container", children: [_jsxs("div", { className: "header-left", children: [_jsxs(Link, { to: "/", className: "brand-logo", "aria-label": "Carpool Home", children: [_jsx("span", { className: "brand-title", children: "Carpool" }), _jsx("span", { className: "brand-region", children: "TN" })] }), user && (_jsxs("div", { className: "mode-toggle", role: "group", "aria-label": "Switch between rider and driver view", children: [_jsxs("button", { type: "button", className: `mode-btn ${mode === 'rider' ? 'is-active' : ''}`, onClick: () => setMode('rider'), "aria-pressed": mode === 'rider', children: [_jsx(Search, { size: 14, "aria-hidden": "true" }), _jsx("span", { children: "Rider" })] }), _jsxs("button", { type: "button", className: `mode-btn ${mode === 'driver' ? 'is-active' : ''}`, onClick: () => setMode('driver'), "aria-pressed": mode === 'driver', children: [_jsx(Car, { size: 14, "aria-hidden": "true" }), _jsx("span", { children: "Driver" })] })] }))] }), _jsx("nav", { className: "header-nav", role: "navigation", "aria-label": "Main Navigation", children: user ? (_jsxs(_Fragment, { children: [mode === 'rider' ? (_jsxs(_Fragment, { children: [_jsx(NavLink, { to: "/search", className: ({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`, children: "Find a ride" }), _jsx(NavLink, { to: "/dashboard", className: ({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`, children: "Dashboard" })] })) : (_jsxs(_Fragment, { children: [_jsxs(NavLink, { to: "/publish", className: ({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`, children: [_jsx(PlusCircle, { size: 15, className: "mr-1", "aria-hidden": "true" }), "Publish route"] }), _jsx(NavLink, { to: "/vehicles", className: ({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`, children: "My vehicles" }), _jsx(NavLink, { to: "/dashboard", className: ({ isActive }) => `nav-link ${isActive ? 'is-active' : ''}`, children: "Dashboard" })] })), _jsxs("div", { className: "header-actions", children: [_jsx(Notifications, {}), _jsxs(Link, { to: "/profile", className: "user-profile-link", title: "My Profile", "aria-label": "My Profile", children: [_jsx(User, { size: 18, "aria-hidden": "true" }), _jsx("span", { className: "user-name", children: user.name.split(' ')[0] })] }), _jsx("button", { type: "button", onClick: handleLogout, className: "logout-btn", title: "Log out", "aria-label": "Log out", children: _jsx(LogOut, { size: 17, "aria-hidden": "true" }) })] })] })) : (_jsxs("div", { className: "auth-links", children: [_jsx(Link, { to: "/search", className: "nav-link", children: "Search rides" }), _jsx(Link, { to: "/login", className: "btn btn-secondary btn-sm", children: "Log in" }), _jsx(Link, { to: "/signup", className: "btn btn-primary btn-sm", children: "Sign up" })] })) })] }) }), _jsx("main", { className: "main-content", role: "main", children: _jsx(Outlet, {}) }), _jsx("footer", { className: "footer", role: "contentinfo", children: _jsxs("div", { className: "footer-inner container", children: [_jsx("p", { className: "footer-copy text-secondary text-sm", children: "Carpool \u2014 Shared commuter routes across Tamil Nadu. Fares split by distance and vehicle occupancy." }), _jsxs("div", { className: "footer-cities text-secondary text-xs", children: [_jsx("span", { children: "Chennai" }), " \u2022 ", _jsx("span", { children: "Coimbatore" }), " \u2022 ", _jsx("span", { children: "Madurai" }), " \u2022 ", _jsx("span", { children: "Tiruchirappalli" }), " \u2022 ", _jsx("span", { children: "Salem" })] })] }) })] }));
+};
