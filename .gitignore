@@ -16,8 +16,20 @@ dist/
 *.db-journal
 *.db-wal
 *.db-shm
+*.sqlite
+*.sqlite3
 data/*.db
+data/*.sqlite
 server/data/*.db
+
+# Generated JS and map files next to source files
+client/src/**/*.js
+client/src/**/*.jsx
+client/src/**/*.js.map
+server/src/**/*.js
+server/src/**/*.js.map
+shared/**/*.js
+shared/**/*.js.map
 
 # Logs
 *.log

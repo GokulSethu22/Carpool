@@ -59,6 +59,7 @@ export function getDb(): DatabaseWithTransaction {
     ? path.resolve(process.cwd(), process.env.DB_PATH)
     : path.resolve(process.cwd(), './data/carpool.db');
 
+  // Ensure parent directory exists before opening database (e.g. data/ on a fresh Render deploy)
   const dbDir = path.dirname(dbPath);
   if (!fs.existsSync(dbDir)) {
     fs.mkdirSync(dbDir, { recursive: true });

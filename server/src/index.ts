@@ -25,7 +25,7 @@ if (typeof process.loadEnvFile === 'function') {
   }
 }
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production' || process.env.RENDER === 'true';
 
 // In production, enforce that JWT_SECRET is provided
 if (isProd && !process.env.JWT_SECRET) {
@@ -35,7 +35,7 @@ if (isProd && !process.env.JWT_SECRET) {
 }
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3001;
+const PORT = Number(process.env.PORT) || 3000;
 const HOST = '0.0.0.0';
 
 // Ensure database connection, schema, and initial seeding are loaded
